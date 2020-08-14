@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: #222;
+}
+
+.hidden {visibility: hidden;}
+.level-chooser {
+	position: fixed;
+	top: 30vh;
+	width: 50%;
+	left: 25%;
+	padding: 2.5%;
+	z-index: 100;
+	text-align: center;
+	border: 4px dashed;
+	color: #fff;
+	background: darkorange;
+}
+
+.greeting::first-letter {
+	font-family: cursive;
+	font-weight: 100;
+}
+.greeting {
+	font-family: fantasy;
+	font-weight: 100;
+}
+
+.level-buttons {
+	margin: 2em;
+}
+
+.level {
+	margin: 1em;
+	padding: 1em 2em;
+	background: none;
+	color: #fff;
+	border: 1px solid;
+	border-radius: 4px;
+}
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: repeating-linear-gradient(-45deg, #333, #000 12px);
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
